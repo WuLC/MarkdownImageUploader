@@ -20,6 +20,6 @@ Make sure the requirements is satisfied, for the first time to use MarkdownImage
 
 <img src="/imgs/configure.gif?raw=true">
 
-Windows users can download (MarkdownImageUploader_win_x64.exe)[https://github.com/WuLC/MarkdownImageUploader/releases/MarkdownImageUploader_win_x64.exe], it should be working on win7_x64 and win10_x64, which I have tested. 
+Windows users can download [MarkdownImageUploader_win_x64.exe](https://github.com/WuLC/MarkdownImageUploader/releases/MarkdownImageUploader_win_x64.exe), it should be working on win7_x64 and win10_x64, which I have tested. 
 
-For Linux or Mac users, install (PySimpleGUI)[https://github.com/PySimpleGUI/PySimpleGUI] with `pip install PySimpleGUI`, then run the script `python main.py` as a background program. But PySimpleGUI doesn't seem to work quite well with mac, and I'm not sure whether this work with mac.
+For Linux or Mac users, install [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI) with `pip install PySimpleGUI`, then run the script `python main.py` as a background program. But PySimpleGUI doesn't seem to work quite well with mac, and I'm not sure whether this work with mac.
