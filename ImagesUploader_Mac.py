@@ -162,7 +162,7 @@ class CommitWindow(QtWidgets.QWidget):
         file_path = self.img_path_text_box.text()
         commit_msg = self.commmit_msg_box.text()
         msg_box = QMessageBox()
-        msg_box.setBaseSize(800, 150)
+        msg_box.setBaseSize(800, 200)
         if not (file_path and commit_msg):
             msg_box.setIcon(QMessageBox.Critical)
             msg_box.setText("either img path or commit message is empty")
@@ -183,7 +183,12 @@ class CommitWindow(QtWidgets.QWidget):
             if result != 0:
                 raise Exception
             msg_box.setIcon(QMessageBox.Information)
-            msg = 'Successfully push to the repository {0}'.format(self.github_repo_addr)
+            # generate img url
+            img_name = file_path.split('/')[-1]
+            user_name = self.github_repo_addr.split('/')[0].split(':')[1]
+            repo_name = self.github_repo_addr.split('/')[-1].rstrip('.git')
+            img_url = 'https://raw.githubusercontent.com/{0}/{1}/master/{2}'.format(user_name, repo_name, urllib.parse.quote(img_name))
+            msg = 'Successfully push to the repository {0}\n{1}'.format(self.github_repo_addr, img_url)
             msg_box.setText(msg)
             msg_box.exec_()
         except Exception as e:
@@ -193,15 +198,6 @@ class CommitWindow(QtWidgets.QWidget):
             msg_box.setText(msg)
             msg_box.exec_()
             return
-        # generate img url
-        img_name = file_path.split('/')[-1]
-        user_name = self.github_repo_addr.split('/')[0].split(':')[1]
-        repo_name = self.github_repo_addr.split('/')[-1].rstrip('.git')
-        img_url = 'https://raw.githubusercontent.com/{0}/{1}/master/{2}'.format(user_name, repo_name, urllib.parse.quote(img_name))
-        msg_box.setIcon(QMessageBox.Information)
-        msg_box.setText(img_url)
-        msg_box.exec_() 
-
 
 if __name__ == "__main__":
     try:
